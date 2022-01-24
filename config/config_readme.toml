@@ -1,0 +1,159 @@
+
+
+[tooltips]
+data_upload = """
+Your CSV file should gained from the G Net Track app and have at least the following column: 
+* Timestamp: precise time when the measurement is taken.
+* Longitude: one of the GPS coordinates of the mobile device.
+* Latitude: one of the GPS coordinates of the mobile device.
+* Speed: speed of the bus at the time of measurement in km/h, calculated from the GPS data.
+* Operator: the mobile country code (MCC) and mobile network code (MNC), which are used together to identify a mobile network operator uniquely.
+* CellID: cell ID of serving cell.
+* LAC: location area code of serving cell, a unique identifier used by each public land mobile network (PLMN) to update the location of mobile subscribers.
+* RSSI: received signal strength indicator, a measure of the power present in a received radio signal.
+* RSRP: reference signal received power; this is the measure of power of the LTE reference signals spread over the full bandwidth and narrowband.
+* RSRQ: reference signal received quality, indicates the quality of the received reference signal.
+* SNR: signal-to-noise ratio, which is the ratio of signal power to the noise power, expressed in decibels.
+* Downlink bitrate: current downlink bitrate at the time of measurement expressed in kbps.
+* Uplink bitrate: current uplink bitrate at the time of measurement expressed in kbps.
+"""
+check_existing = """
+* Check to load a network dataset and see what can be done with this app 
+* Uncheck to Upload your own Dataset
+"""
+existing_dataset = """
+Three network datasets are available:
+* 9am Measurement
+* 12pm Measurement
+* 6pm Measurement
+"""
+date_column = """
+Column to be parsed as a date
+"""
+target_column = """
+Quantity to be forecasted
+"""
+heatmap = """
+* Check to visualize the features correlation heatmap
+* For better experience, in the right corner of the heatmap, click fullscreen
+* Correlation Heatmap measures the strength of the relationship between two variables and their direction (positive or negative)
+* Regarding the strength of the relationship between variables, the closer the value is to 1 or -1, the correlation more stronger. Meanwhile, the closer the value to 0, the correlation more weaker.
+* If done, please press esc in your keyboard
+"""
+feature_selection = """
+Feature selection is the process of selecting the features that contribute most to the prediction variable.
+* To find the feature with high correlation with the target feature, we use feature correlation heatmap, just check it
+* If you've done to analyze the features correlation heatmap, you need to choose minimum 3 features with high correlation with the target feature
+* If you need to reduce the dataset dimension again, you can use PCA method, just check Perform PCA
+"""
+perform_pca = """
+Principal component analysis (PCA) is a dimensionality reduction and visualization technique where datasets containing a high number of dimensions (greater than 3 ) can be reduced for either plotting on a 2D scale or simply reduce the number of dimensions in a dataset.
+* In this app we only reduced the dataset to one-dimension feature
+* Date and target column, these two variables are not used in this stage
+* First, we need to set the PC number of PCA 
+* If we choose 3, we need minimum 3 features selected in the feature selection stage without date & target features
+* If you need additional PC, you also have to select more features in Feature Selection stage
+* After that you'll see the information proportion from a number of PCs 
+* And then we must set '1' for the last one PC configuration to reduce the dataset dimension to 1-dimension
+* Finally, we got the result!
+"""
+error_message = """
+If you got error message for performing PCA:
+* Press + to add value
+* Then press - to bring back the current value 
+"""
+train_test_split = """
+The dataset  split into two subsets: a training set and a test set. 
+* The training set is the partition of the dataset that the model is trained on. 
+* The test set is the partition of the dataset that the model has not seen before.
+"""
+regression_algorithm = """
+Six regression algorithm are available:
+* K-Nearest Neighbors
+* Random Forest
+* Ada Boost
+* Linear regression
+* Gradient Boosting
+* Support Vector Machines
+
+To generate the prediction, just press the generate prediction button!
+"""
+hyperparameter_tuning = """
+tune the model parameters and see how each parameter is impacting forecasts
+"""
+k_value = """
+K value indicates the count of the nearest neighbors. We have to compute distances between test points and trained labels points.
+* There are no pre-defined statistical methods to find the most favorable value of K.
+* Initialize a random K value and start computing.
+* Choose the K value as having a minimum error rate.
+Let's tune the model parameters and see how each parameter is impacting forecasts
+"""
+n_estimator = """
+Random forest is basically a bagging version of the decision tree algorithm. Bagging aggregating is a technique that trains a model with a random sample. Bagging is one approach to create an ensemble model. An ensemble model is a predictive model that consists of several models and works together. For example, there are 100 decision tree models in our random forest bag, this means that the decisions made by each tree (model) will vary greatly. In the case of regression, the final prediction is the average of the predictions of all trees in the model ensemble.
+* Default n_estimators=100
+* Initialize a random number of trees and start computing.
+* The optimal number of trees in the Random Forest depends on the number of rows in the data set. The more rows in the data, the more trees are needed
+* Choose the number of trees (n_estimators) as having a minimum error rate.
+Let's tune the model parameters and see how each parameter is impacting forecasts
+"""
+n_estimators_adaboost = """
+AdaBoost is an ensemble algorithm that utilizes bagging and boosting to develop predictor accuracy improvements. Just like random forest, this algorithm also uses several decision trees to obtain predictive data. Unlike Random Forest, AdaBoost builds a stumps forest. Stumps are trees made of only one branch and two leaves. Then, the built stumps do not have the same weight on the final prediction. That is, stumps that have large errors have little influence on decision making. The last difference is the order of making stumps is very important because each stumps aims to reduce errors generated by the previous stumps. AdaBoost algorithm seeks to use many weak models and correct their predictions by adding additional weak models.
+* Default n_estimators=50
+* Initialize a random number of trees and start computing.
+* The number of trees added to the model must be high for the model to work well, often hundreds, if not thousands
+* Choose the number of trees (n_estimators) as having a minimum error rate.
+Let's tune the model parameters and see how each parameter is impacting forecasts
+"""
+n_estimators_gboost = """
+The number of boosting stages to perform. Gradient boosting is fairly robust to over-fitting so a large number usually results in better performance.
+* Default n_estimators=100
+* Initialize a random number of trees and start computing.
+* As such, more trees is often better. The number of trees must also be balanced with the learning rate, e.g. more trees may require a smaller learning rate, fewer trees may require a larger learning rate.
+* Choose the number of trees (n_estimators) as having a minimum error rate.
+"""
+metric_knn = """
+The distance metric to use for the tree. The default metric is minkowski, and with p=2 is equivalent to the standard Euclidean metric. 
+"""
+criterion = """
+The function to measure the quality of a split. 
+* “squared_error” for the mean squared error, which is equal to variance reduction as feature selection criterion, 
+* “absolute_error” for the mean absolute error, and 
+* “poisson” which uses reduction in Poisson deviance to find splits. 
+* Training using “absolute_error” is significantly slower than when using “squared_error”.
+"""
+max_depth = """
+The maximum depth of the tree. If None, then nodes are expanded until all leaves are pure or until all leaves contain less than min_samples_split samples.
+"""
+min_samples_split = """
+The minimum number of samples required to split an internal node
+"""
+learning_rate_adaboost = """
+Weight applied to each regressor at each boosting iteration. A higher learning rate increases the contribution of each regressor. There is a trade-off between the learning_rate and n_estimators parameters.
+* default=1.0
+"""
+loss_adaboost = """
+The loss function to use when updating the weights after each boosting iteration.
+* default='linear'
+"""
+loss_gboost = """
+Loss function to be optimized.
+* ‘squared_error’ refers to the squared error for regression (default)
+* ‘absolute_error’ refers to the absolute error of regression and is a robust loss function
+* ‘huber’ is a combination of the two
+* ‘quantile’ allows quantile regression
+"""
+learning_rate_gboost = """
+Learning rate shrinks the contribution of each tree by learning_rate. There is a trade-off between learning_rate and n_estimators.
+* default=0.1
+"""
+max_depth_gboost = """
+Maximum depth of the individual regression estimators. The maximum depth limits the number of nodes in the tree. Tune this parameter for best performance; the best value depends on the interaction of the input variables.
+* default max_depth  = 3
+"""
+epsilon = """
+Epsilon parameter in the epsilon-insensitive loss function. Note that the value of this parameter depends on the scale of the target variable y. If unsure, set epsilon=0
+"""
+C = """
+Regularization parameter. The strength of the regularization is inversely proportional to C. Must be strictly positive.
+"""
+
