@@ -570,6 +570,8 @@ if regressor :
                                         st.metric("R2 Score","{:.2f}".format(r2_square))
                                 with col2 :
                                         st.metric("RMSE","{:.2f}".format(rmse))
+                                st.write("Tips on the Evaluation Metrics 💡")
+                                st.info(readme['tooltips']['eval_tips'])
 
                                 with st.expander("⚡ More info on Evaluation Metrics", expanded=False):
                                         st.write("The following metrics can be computed to evaluate model performance:")
