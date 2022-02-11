@@ -2,7 +2,7 @@
 
 [tooltips]
 data_upload = """
-Your CSV file should gained from the G Net Track app and have at least the following column: 
+Your TXT file should gained from the G Net Track app and have at least the following column: 
 * Timestamp: precise time when the measurement is taken.
 * Longitude: one of the GPS coordinates of the mobile device.
 * Latitude: one of the GPS coordinates of the mobile device.
@@ -39,6 +39,7 @@ heatmap = """
 * Correlation Heatmap measures the strength of the relationship between two variables and their direction (positive or negative)
 * Regarding the strength of the relationship between variables, the closer the value is to 1 or -1, the correlation more stronger. Meanwhile, the closer the value to 0, the correlation more weaker.
 * If done, please press esc in your keyboard
+* If the image didn't show, just right click on crash image!
 """
 feature_selection = """
 Feature selection is the process of selecting the features that contribute most to the prediction variable.
@@ -68,13 +69,14 @@ The dataset  split into two subsets: a training set and a test set.
 * The test set is the partition of the dataset that the model has not seen before.
 """
 regression_algorithm = """
-Six regression algorithm are available:
+Seven regression algorithm are available:
 * K-Nearest Neighbors
 * Random Forest
 * Ada Boost
 * Linear regression
 * Gradient Boosting
-* Support Vector Machines
+* Support Vector regression
+* Ridge Regression
 
 To generate the prediction, just press the generate prediction button!
 """
@@ -156,4 +158,12 @@ Epsilon parameter in the epsilon-insensitive loss function. Note that the value 
 C = """
 Regularization parameter. The strength of the regularization is inversely proportional to C. Must be strictly positive.
 """
+eval_tips = """
+* Best Possible score for R-squared is 1.0
+* Negative score for R-squared indicates the model can be arbitrarily worse
+* A higher R-squared score specifies that the model fits the data better
+* Lower RMSE values indicate that the model fits the data better
+"""
+
+
 
