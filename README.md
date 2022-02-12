@@ -1,5 +1,7 @@
 # Cellular Network User Throughput-Downlink Prediction (CNET-UTRON) Dashboard
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/[user name]/[repo name]/[branch name]/[app path])
+
 Deployed with 
 
 * Google Cloud Run www.cnet-utron.com
